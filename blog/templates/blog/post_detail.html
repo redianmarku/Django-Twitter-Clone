@@ -1,0 +1,105 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <h3 class="white-important mb-3">
+        Post
+    </h3>
+   <article class="media content-section">
+        <div style="width: 100%; word-break: break-all;" class="hovered-tweet-comment">
+            <div class="pb-2 row m-0 " style="width: 100%; margin-right: 0 !important;">
+               <div
+                       style="padding-left: 0px !important;"
+                       class="col-8 no-padding d-flex align-items-center">
+                   <img
+                       class="rounded-circle mr-2"
+                       style="width: 20px; height: 20px;"
+                       src="{{ post.author.profile.image.url }}">
+                   <a class="mr-2 white-important" href="{% url 'user-posts' post.author %}">
+                       {{ post.author }}
+                   </a>
+               </div>
+               <div class="col-4 d-flex flex-row-reverse no-padding align-items-center"
+                    style="padding-right: 0 !important;">
+                   {% if post.author == user %}
+                        <a class="material-icons ml-2"
+                           style="font-size: 14px"
+                                href="{% url 'post-delete' post.id %}">clear</a>
+                        <a class="material-icons ml-2"
+                           style="font-size: 14px"
+                                href="{% url 'post-update' post.id %}">update</a>
+                    {%  endif %}
+               </div>
+           </div>
+            <div
+                    class="mb-2 "
+                    style="width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.1)"></div>
+            <a style="color: rgba(255, 255, 255, 0.5) !important;">
+                <p>
+                    {{ post.content }}
+                </p>
+
+                <small
+                    class="white-important d-flex full-width flex-row-reverse">
+                    {{ post.date_posted | date:"H:i l, d.m.y" }}
+                </small>
+            </a>
+        </div>
+   </article>
+    <div class="row pl-3">
+        <div class="col-12 col-md-6 pl-0">
+         <h3 class="white-important mb-3">
+             Comments
+         </h3>
+        {% for comment in comments %}
+            <article class="media content-section">
+                <div style="width: 100%; word-break: break-all;" class="hovered-tweet-comment-in">
+                <div class="pb-2 row m-0" style="width: 100%; margin-right: 0 !important;">
+                   <div
+                           style="padding-left: 0px !important;"
+                           class="col-8 no-padding d-flex align-items-center">
+                       <img
+                           class="rounded-circle mr-2"
+                           style="width: 20px; height: 20px;"
+                           src="{{ comment.author.profile.image.url }}">
+                       <a class="mr-2 white-important" href="{% url 'user-posts' comment.author.username %}">
+                           {{ comment.author }}
+                       </a>
+                   </div>
+               </div>
+                <div
+                        class="mb-2"
+                        style="width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.1)"></div>
+                <a style="color: rgba(255, 255, 255, 0.5) !important;">
+                    <p>
+                        {{ comment.content }}
+                    </p>
+
+                    <small
+                        class="white-important d-flex full-width flex-row-reverse">
+                        {{ comment.date_posted | date:"H:i l, d.m.y" }}
+                    </small>
+                </a>
+            </div>
+            </article>
+        {% endfor %}
+        </div>
+        {% if user is not None %}
+            <div class="col-12 col-md-6 pl-0 pl-md-3 pr-3">
+                <h3 class="white-important mb-3">
+                    Add a comment
+                </h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form | crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary" type="submit">Submit comment</button>
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,245 @@
+:root {
+    --muted-color: rgba(255, 255, 255, 0.5);
+}
+
+
+body {
+  background: #15202b;
+  color: var(--muted-color);
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--muted-color);
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #15202b;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: var(--muted-color);
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: var(--muted-color);
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  padding: 10px 10px;
+  margin-bottom: 20px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: var(--muted-color);
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+a {
+    color: white;
+    text-underline: none;
+     text-decoration: none !important;
+}
+a:hover {
+    color: #00FBD7;
+    text-underline: none !important;
+}
+.text-muted {
+    color: var(--muted-color) !important;
+}
+
+article {
+    border-radius: 4px;
+}
+
+.white-important {
+    color: white;
+    font-weight: bold;
+}
+
+.full-width {
+    width: 100%
+}
+
+.btn-outline-primary {
+    border-color: white;
+    color: white !important;
+    padding: 12px 80px 12px 80px;
+    font-weight: bold;
+    background-color: #1da1f2;
+    border:0;
+    border-radius: 25px;
+}
+
+.btn:active, .btn-outline-primary:hover {
+    color: #00FBD7 !important;
+    background-color: #36405e !important;
+    border-color: #00FBD7 !important;
+}
+
+.col-form-label {
+    color: white;
+}
+
+.form-control {
+    background-color: #36405e !important;
+    color: var(--muted-color) !important;
+    box-shadow: 0 0 0 0 !important;
+    border-radius: 20px !important;
+}
+
+textarea:focus, input:focus {
+    box-shadow: 0 0 0 0 !important;
+    border-color: #00FBD7 !important;
+    color: white !important;
+}
+
+.alert-success {
+    color: #00FBD7;
+    background-color: #36405e;
+    border-color: #00FBD7;
+}
+
+.pointer-cur {
+    cursor: pointer;
+}
+
+.btn-info {
+    color: white;
+    background-color: #36405e;
+    border-color: white;
+}
+
+.btn-outline-secondary {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white !important;
+}
+
+.btn-outline-secondary:hover {
+    color: #00FBD7 !important;
+    background-color: #36405e !important;
+    border-color: #00FBD7 !important;
+}
+
+.alert-danger {
+    color: #ff00f0 !important;
+    background-color: #36405e !important;
+    border-color: #ff00f0 !important;
+}
+
+.nav-link:hover {
+    -webkit-transition: color .2s;
+    color: white !important;
+}
+
+ul {
+    list-style: none !important;
+}
+
+.hovered-tweet {
+    cursor: pointer;
+}
+
+.hovered-tweet {
+    border: 1px solid transparent;
+}
+
+.hovered-tweet:hover {
+    -webkit-transition: background-color ease-in-out .2s;
+    -webkit-transition: border ease-in-out .2s;
+    background-color: #2d3741 !important;
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 20px;
+}
+
+.hovered-tweet-comment {
+    background-color: #2d3741 !important;
+    padding:15px;
+    border-radius: 20px;
+    border:1px solid grey;
+}
+
+.hovered-tweet-comment-in{
+    background-color: #2d3741 !important;
+    padding:12px;
+    border-radius: 20px;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    color: white !important;
+    background-color: #15202b !important;
+    border-radius: 4px;
+    border: 1px solid white;
+}
+
+.follow-click:hover {
+    color: #00FBD7 !important;
+}
+
+.t-section{
+  background-color: #2d3741;
+  border-radius: 25px;
+}
+
+.who-to-follow{
+  border-top: 1px solid grey;
+  padding: 3px;
+  margin: 3px;
+}
+
+.profile-section{
+  background-color: #2d3741;
+  padding: 5px;
+  border-radius: 25px;
+}
+
+.dont-move{
+  position:;
+}
+
+.scrollable {
+  overflow-y: auto; 
+  border-left: 1px solid #2d3741;
+  border-right: 1px solid #2d3741;
+
+}
+
+.email-profile{
+  font-size: 13px;
+  outline: hidden;
+}

@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <h3 class="white-important">
+        Change profile data
+    </h3>
+    <form class="col-6 no-padding" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            {{ uform | crispy }}
+            {{ pform | crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-primary" type="submit">Change data</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
