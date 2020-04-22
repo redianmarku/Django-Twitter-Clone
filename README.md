@@ -9,6 +9,8 @@ Demo Image:
 
 1. Git Clone the project with: ```git clone https://github.com/redianmarku/Django-Twitter-Clone.git```.
 
+2. Move to the base directory: ```cd Django-Twitter-Clone```
+
 2. Create a new python enveronment with: ```python -m venv env```.
 
 3. Activate enveronment with: ```env\Scripts\activate``` on windows, or ```source env/bin/activate``` on Mac and Linux.
