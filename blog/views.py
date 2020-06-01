@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from blog.models import Post, Comment
+from django.shortcuts import render, get_object_or_404, redirect
+from blog.models import Post, Comment, Preference
 from users.models import Follow, Profile
 import sys
 from django.contrib.auth.models import User
@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Count
 from .forms import NewCommentForm
+from django.contrib.auth.decorators import login_required
 
 
 def is_users(post_user, logged_user):
@@ -33,7 +34,12 @@ class PostListView(LoginRequiredMixin, ListView):
 
         for aux in data_counter:
             all_users.append(User.objects.filter(pk=aux['author']).first())
-
+        # if Preference.objects.get(user = self.request.user):
+        #     data['preference'] = True
+        # else:
+        #     data['preference'] = False
+        data['preference'] = Preference.objects.all()
+        # print(Preference.objects.get(user= self.request.user))
         data['all_users'] = all_users
         print(all_users, file=sys.stderr)
         return data
@@ -193,3 +199,68 @@ class FollowersListView(ListView):
         data['follow'] = 'followers'
         return data
 
+
+# Like Functionality====================================================================================
+@login_required
+def postpreference(request, postid, userpreference):
+        if request.method == "POST":
+                eachpost= get_object_or_404(Post, id=postid)
+                obj=''
+                valueobj=''
+                try:
+                        obj= Preference.objects.get(user= request.user, post= eachpost)
+                        valueobj= obj.value 
+                        valueobj= int(valueobj)
+                        userpreference= int(userpreference)
+                        if valueobj != userpreference:
+                                obj.delete()
+                                upref= Preference()
+                                upref.user= request.user
+                                upref.post= eachpost
+                                upref.value= userpreference
+                                if userpreference == 1 and valueobj != 1:
+                                        eachpost.likes += 1
+                                        eachpost.dislikes -=1
+                                elif userpreference == 2 and valueobj != 2:
+                                        eachpost.dislikes += 1
+                                        eachpost.likes -= 1
+                                upref.save()
+                                eachpost.save()
+                                context= {'eachpost': eachpost,
+                                  'postid': postid}
+                                return redirect('blog-home')
+                        elif valueobj == userpreference:
+                                obj.delete()
+                                if userpreference == 1:
+                                        eachpost.likes -= 1
+                                elif userpreference == 2:
+                                        eachpost.dislikes -= 1
+                                eachpost.save()
+                                context= {'eachpost': eachpost,
+                                  'postid': postid}
+                                return redirect('blog-home')
+                                
+                except Preference.DoesNotExist:
+                        upref= Preference()
+                        upref.user= request.user
+                        upref.post= eachpost
+                        upref.value= userpreference
+                        userpreference= int(userpreference)
+                        if userpreference == 1:
+                                eachpost.likes += 1
+                        elif userpreference == 2:
+                                eachpost.dislikes +=1
+                        upref.save()
+                        eachpost.save()                            
+
+                        context= {'post': eachpost,
+                          'postid': postid}
+
+                        return redirect('blog-home')
+
+        else:
+                eachpost= get_object_or_404(Post, id=postid)
+                context= {'eachpost': eachpost,
+                          'postid': postid}
+
+                return redirect('blog-home')

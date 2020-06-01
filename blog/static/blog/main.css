@@ -172,7 +172,8 @@ ul {
 }
 
 .hovered-tweet {
-    cursor: pointer;
+    background-color: #90909017;
+    border-radius: 20px;
 }
 
 .hovered-tweet {
@@ -228,9 +229,6 @@ input[type="file"]::-webkit-file-upload-button {
   border-radius: 25px;
 }
 
-.dont-move{
-  position:;
-}
 
 .scrollable {
   overflow-y: auto; 
@@ -243,3 +241,4 @@ input[type="file"]::-webkit-file-upload-button {
   font-size: 13px;
   outline: hidden;
 }
+

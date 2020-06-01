@@ -136,6 +136,7 @@
             {% for post in posts %}
                 <article class="media content-section hovered-tweet">
                 <div style="width: 100%; word-break: break-all;">
+                    
                     <div class="pb-2 row m-0" style="width: 100%; margin-right: 0 !important;">
                        <div
                                style="padding-left: 0px !important;"
@@ -169,11 +170,36 @@
                         <p class="mb-4">
                             {{ post.content }}
                         </p>
+                    </a>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-6" style="display: flex;">
                                 <small style="opacity: 0.4;">
-                                    {{ post.number_of_comments }} comment(s)
+
+                                    <!-- Like Buttons Here -->
+                                    <a href="#" onClick="document.getElementById('likebutton').submit()">
+                                            {% if post.likes == 1  %}
+                                            <i style="color: red; font-size: 16px;" class="far fa-heart"></i>
+                                            {% else %}
+                                            <i style=" font-size: 16px;" class="far fa-heart"></i>
+                                            {% endif %}
+
+                                             {{post.likes}} like(s)
+                                        
+                                    </a> 
+
+                                    <form id="likebutton" method="POST" action="{% url 'postpreference' post.id 1%}">
+                                    {% csrf_token %}
+                                    <input type="hidden">
+                                    </form>
+
+                                    
+                                </small>
+                                <small style="opacity: 0.4; margin-left:15px;">
+                                    <a href="/post/{{post.id}}/">
+                                        <i style=" font-size: 16px;" class="far fa-comment"></i> {{ post.number_of_comments }} comment(s)
+                                    </a>
+                                    
                                 </small>
                             </div>
                             <div class="col-6">
@@ -184,7 +210,7 @@
                                 </small>
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
                 </article>
             {% endfor %}
