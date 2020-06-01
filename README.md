@@ -23,6 +23,6 @@ Demo Image:
 
 ## Certificate
 This project is officialy certified by Redian Marku.
-All rights 2020.
+All rights reserved 2020.
 
 Please Subscribe my YouTube Channel: <a href="https://www.youtube.com/channel/UCO5WiowKFnEw17AOk008WOQ" target="_blank">Ready Dev</a>.
