@@ -209,7 +209,7 @@ def postpreference(request, postid, userpreference):
                 valueobj=''
                 try:
                         obj= Preference.objects.get(user= request.user, post= eachpost)
-                        valueobj= obj.value 
+                        valueobj= obj.value
                         valueobj= int(valueobj)
                         userpreference= int(userpreference)
                         if valueobj != userpreference:
@@ -239,7 +239,7 @@ def postpreference(request, postid, userpreference):
                                 context= {'eachpost': eachpost,
                                   'postid': postid}
                                 return redirect('blog-home')
-                                
+
                 except Preference.DoesNotExist:
                         upref= Preference()
                         upref.user= request.user
@@ -251,7 +251,7 @@ def postpreference(request, postid, userpreference):
                         elif userpreference == 2:
                                 eachpost.dislikes +=1
                         upref.save()
-                        eachpost.save()                            
+                        eachpost.save()
 
                         context= {'post': eachpost,
                           'postid': postid}
@@ -264,3 +264,6 @@ def postpreference(request, postid, userpreference):
                           'postid': postid}
 
                 return redirect('blog-home')
+
+def about(request):
+    return render(request,'blog/about.html',)
