@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row">
         <div class="col-12 col-md-3 pr-4 dont-move">
-            <a href="/"> <h2><img class="img-fluid" width="60" src="{% static 'blog/logo.png' %}">ReadyTweet</h2></a><br>
+            <a href="/"> <h2><img class="img-fluid" width="60" src="{% static 'blog/logo.png' %}">BlogRoom</h2></a><br>
             <div class="profile-section">
             <h3 class="white-important p-2">
                 Profile
@@ -88,7 +88,7 @@
                     {%  endif %}
                 </div>
             </article>
-            
+
             <div class="d-flex">
                 {% if user_profile is None %}
                 <div style="margin-left: 40px">
@@ -136,7 +136,7 @@
             {% for post in posts %}
                 <article class="media content-section hovered-tweet">
                 <div style="width: 100%; word-break: break-all;">
-                    
+
                     <div class="pb-2 row m-0" style="width: 100%; margin-right: 0 !important;">
                        <div
                                style="padding-left: 0px !important;"
@@ -185,21 +185,21 @@
                                             {% endif %}
 
                                              {{post.likes}} like(s)
-                                        
-                                    </a> 
+
+                                    </a>
 
                                     <form id="likebutton" method="POST" action="{% url 'postpreference' post.id 1%}">
                                     {% csrf_token %}
                                     <input type="hidden">
                                     </form>
 
-                                    
+
                                 </small>
                                 <small style="opacity: 0.4; margin-left:15px;">
                                     <a href="/post/{{post.id}}/">
                                         <i style=" font-size: 16px;" class="far fa-comment"></i> {{ post.number_of_comments }} comment(s)
                                     </a>
-                                    
+
                                 </small>
                             </div>
                             <div class="col-6">
@@ -210,7 +210,7 @@
                                 </small>
                             </div>
                         </div>
-                    
+
                 </div>
                 </article>
             {% endfor %}
@@ -253,11 +253,11 @@
               </div>
             </div>
             <h3 class="white-important mb-3 mt-4"> Trends </h3>
-               
+
                 {%  if user_profile is None %}
-                
+
                 <article class="t-section media content-section">
-                     
+
                     <div class="row ">
                         <div class="col-12">
                             <h3>Who to follow</h3>
@@ -266,7 +266,7 @@
                             {% for user in all_users %}
                                 <li>
                                     <div class="who-to-follow">
-                                    
+
                                         <div
                                                style="padding-left: 0px !important;"
                                                class="col-8 no-padding d-flex align-items-center">
@@ -294,7 +294,7 @@
 <a href="">Ads info</a>,
 <a href="">More</a>
 © 2020 Twitter, Inc.</p>
-            
+
         </div>
     </div>
 {% endblock content %}
