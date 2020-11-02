@@ -28,4 +28,4 @@ All rights reserved 2020.
 Please Subscribe my YouTube Channel: <a href="https://www.youtube.com/channel/UCO5WiowKFnEw17AOk008WOQ" target="_blank">Ready Dev</a>.
 
 # Donate
-[![paypal](https://assets.stickpng.com/thumbs/5895cea4cba9841eabab606f.png)](https://www.paypal.me/redidev)
+[![paypal](https://mk0mightycausebxdggx.kinstacdn.com/wp-content/uploads/2019/06/paypal-donate-button-high-quality-png.png)](https://www.paypal.me/redidev)
