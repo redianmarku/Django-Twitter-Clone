@@ -177,18 +177,15 @@
                                 <small style="opacity: 0.4;">
 
                                     <!-- Like Buttons Here -->
-                                    <a href="#" onClick="document.getElementById('likebutton').submit()">
-                                            {% if post.likes == 1  %}
-                                            <i style="color: red; font-size: 16px;" class="far fa-heart"></i>
-                                            {% else %}
-                                            <i style=" font-size: 16px;" class="far fa-heart"></i>
-                                            {% endif %}
+                                    <a href="#" onClick="document.getElementById('likebutton').submit()"><i class="fas fa-thumbs-up"></i></a> {{post.likes}}   |   <a href="#" onClick="document.getElementById('dislikebutton').submit()"><i class="fas fa-thumbs-down"></i></a> {{post.dislikes}}
 
-                                             {{post.likes}} like(s)
 
-                                    </a>
+                                    <form id="likebutton" method="POST" action="{% url 'postpreference' post.id 1 %}">
+                                    {% csrf_token %}
+                                    <input type="hidden">
+                                    </form>
 
-                                    <form id="likebutton" method="POST" action="{% url 'postpreference' post.id 1%}">
+                                    <form id="dislikebutton" method="POST" action="{% url 'postpreference' post.id 2 %}">
                                     {% csrf_token %}
                                     <input type="hidden">
                                     </form>
