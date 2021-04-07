@@ -2,7 +2,7 @@ altgraph==0.17
 appdirs==1.4.3
 asgiref==3.2.10
 auto-py-to-exe==2.7.8
-bottle==0.12.18
+bottle==0.12.19
 bottle-websocket==0.2.9
 CacheControl==0.12.6
 certifi==2019.11.28
