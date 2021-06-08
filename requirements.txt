@@ -31,7 +31,7 @@ numpy==1.19.1
 opencv-python==4.3.0.36
 packaging==20.3
 pep517==0.8.2
-Pillow==8.1.1
+Pillow==8.2.0
 progress==1.5
 protobuf==3.10.0
 psycopg2==2.8.6
