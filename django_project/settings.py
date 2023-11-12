@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
