@@ -1,3 +1,4 @@
+jazzmin==2.6.0
 altgraph==0.17
 appdirs==1.4.3
 asgiref==3.2.10
